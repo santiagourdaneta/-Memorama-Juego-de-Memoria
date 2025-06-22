@@ -1,0 +1,153 @@
+/* Para que todo se vea más bonito */
+body {
+    font-family: Arial, sans-serif; /* Un tipo de letra fácil de leer */
+    display: flex; /* Para poder centrar cosas */
+    flex-direction: column; /* Pone las cosas una debajo de la otra */
+    align-items: center; /* Centra las cosas horizontalmente */
+    background-color: #f0f0f0; /* Un color de fondo suave */
+    margin: 0px; /* Un pequeño espacio alrededor */
+}
+
+h1 {
+    color: #333; /* Color oscuro para el título */
+    margin-bottom: 0px; /* Espacio debajo del título */
+}
+
+/* Así se verá nuestro tablero donde van las cartas */
+.game-board {
+    display: grid; /* Esto es como hacer una cuadrícula de cuadritos */
+    grid-template-columns: repeat(4, 100px); /* 4 columnas de 100px de ancho cada una */
+    grid-gap: 10px; /* Espacio entre los cuadritos (cartas) */
+    padding: 20px; /* Espacio dentro del tablero */
+    background-color: #a0d0d0; /* Un color bonito para el tablero */
+    border-radius: 10px; /* Bordes redonditos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Una sombra para que se vea que sobresale */
+}
+
+/* Así se verá cada carta */
+.card {
+    width: 100px; /* Ancho de la carta */
+    height: 100px; /* Alto de la carta */
+    background-color: #eee; /* Color de la parte de atrás de la carta */
+    border: 2px solid #555; /* Un borde oscuro */
+    border-radius: 8px; /* Bordes un poco redondos */
+    cursor: pointer; /* Cuando pases el ratón, parecerá una manita para tocarla */
+    display: flex; /* Para centrar el número o dibujo */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    font-size: 3em; /* Tamaño grande para el número */
+    font-weight: bold; /* Letra más gordita */
+    color: transparent; /* El número estará invisible al principio */
+    transition: all 0.3s ease; /* Para que la animación de voltear sea suave */
+    transform-style: preserve-3d; /* Para que se vea el efecto 3D al voltear */
+    position: relative; /* Para poner el anverso y el reverso */
+}
+
+/* Cuando la carta está "volteada", mostramos el número */
+.card.flipped {
+    background-color: #fff; /* Color blanco cuando está volteada */
+    color: #333; /* El número se vuelve visible */
+    transform: rotateY(180deg); /* La carta gira para mostrar el frente */
+}
+
+/* Estilos para el anverso y el reverso de la carta */
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 0.3s;
+}
+
+.card .front,
+.card .back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden; /* Oculta la parte de atrás cuando la ves de frente */
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.card .back {
+    background-color: #555; /* Color del reverso de la carta */
+    color: white;
+    /* Puedes poner una imagen o icono aquí para el reverso */
+    /* background-image: url('images/card-back.png'); */
+    /* background-size: cover; */
+}
+
+.card .front {
+    background-color: #fff; /* Color del anverso de la carta */
+    color: #333;
+    transform: rotateY(180deg); /* El anverso está girado para que se vea al voltear */
+}
+
+/* Cuando las cartas hacen pareja, se quedan fijas y no se pueden volver a tocar */
+.card.matched {
+    cursor: default; /* Ya no es una manita */
+    opacity: 0.8; /* Se ve un poco transparente */
+}
+
+/* Estilos para cuando el juego ha terminado */
+.game-over-message {
+    margin-top: 20px;
+    font-size: 2em;
+    color: green;
+    font-weight: bold;
+    display: none; /* Al principio no se ve */
+}
+
+/* Botón para jugar de nuevo */
+button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    display: none; /* Al principio no se ve */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* ... todo tu CSS anterior ... */
+
+/* Estilos para los contadores de movimientos y tiempo */
+.game-info {
+    font-size: 1.5em; /* Tamaño de letra más grande */
+    margin-bottom: 5px; /* Espacio debajo de los contadores */
+    color: #555; /* Color de texto oscuro */
+    text-align: center; /* Centra el texto */
+    width: 100%; /* Ocupa todo el ancho disponible */
+}
+
+.game-info span {
+    font-weight: bold; /* Los números se verán más gorditos */
+    color: #007bff; /* Color azul para los números */
+}
+
+/* Para el botón de reiniciar que ahora tiene un ID */
+#restart-button { /* Usamos # porque es un ID */
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    display: none;
+}
+
+#restart-button:hover {
+    background-color: #0056b3;
+}

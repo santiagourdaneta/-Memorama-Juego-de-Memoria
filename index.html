@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memorama Divertido - Juego de Memoria Online Gratis</title>
+    <meta name="description" content="Juega a nuestro divertido Memorama online y entrena tu memoria. ¡Encuentra todas las parejas en el menor tiempo y movimientos posibles!">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="game-over-message" style="display: none;">¡Felicidades! ¡Encontraste todas las parejas!</div>
+    <button id="restart-button" style="display: none;">Jugar de Nuevo</button>
+
+    <h1>¡Vamos a Jugar Memorama Online!</h1>
+
+    <div class="game-info">
+        <p>Movimientos: <span id="moves-counter">0</span>
+        Tiempo: <span id="timer">0</span> segundos</p>
+    </div>
+
+    <div id="game-board" class="game-board">
+        </div>
+
+    <p>Un clásico juego de memoria para todas las edades.</p>
+<h2>Cómo Jugar:</h2>
+<ul>
+    <li>Voltea dos cartas a la vez.</li>
+    <li>Si son iguales, ¡felicidades, encontraste una pareja!</li>
+    <li>Si no, se volverán a esconder.</li>
+    <li>El objetivo es encontrar todas las parejas en el menor tiempo y movimientos posibles.</li>
+</ul>
+    <script src="js/script.js"></script>
+</body>
+</html>
